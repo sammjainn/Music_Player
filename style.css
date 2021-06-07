@@ -1,0 +1,352 @@
+:root {
+}
+.light-theme {
+  --primary-1: #67a9ed;
+  --primary-2: #8ab6e9;
+  --primary-3: #b1cef0;
+  --primary-4: #d8e7f8;
+  --primary-5: #e5f0f9;
+
+  --secondary-1: #8a8a8a;
+  --secondary-2: #bfc1c0;
+  --secondary-3: #cdcecd;
+
+  --text: black;
+  --success: #94ce9c;
+}
+.dark-theme {
+  --primary-1: #1e63b8;
+  --primary-2: #325a9f;
+  --primary-3: #2f5392;
+  /* --primary-4: #2a487f; */
+  --primary-4: #213a66;
+  --primary-5: #1c3258;
+
+  --secondary-1: #6e6e6e;
+  --secondary-2: #4f4f50;
+  --secondary-3: #434444;
+
+  --text: #c1cbde;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-family: 'Nunito Sans', sans-serif;
+  transition: background-color 0.6s ease;
+}
+body {
+  background: var(--primary-3);
+  color: var(--text);
+}
+.container {
+  width: 80vw;
+  max-width: 800px;
+  height: 80vh;
+  margin: auto;
+  margin-top: 10vh;
+  background-color: var(--primary-4);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-gap: 10px;
+  border-radius: 25px;
+  box-shadow: 0 0 30px var(--primary-2);
+}
+/* MENU */
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
+  width: 100%;
+  color: var(--text);
+}
+.menu .fas {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+}
+.theme * {
+  font-size: 2rem;
+}
+.file-upload-btn {
+  border: none;
+  background: none;
+  font-size: 2rem;
+}
+.file-upload-input {
+  display: none;
+}
+/* Search */
+.search {
+  height: 10%;
+  width: 95%;
+  background: var(--primary-2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+.search-bar {
+  background: none;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 0.5rem 2rem;
+}
+.search-bar::placeholder {
+  color: var(--text);
+}
+.search .fa-search {
+  font-size: 1.5rem;
+  color: var(--text);
+  position: absolute;
+  right: 3rem;
+}
+/* Song container */
+.songs {
+  height: 60%;
+  max-height: 60%;
+  width: 95%;
+}
+.songs-default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  grid-gap: 10px;
+}
+.songs-default .fa-bomb {
+  font-size: 7rem;
+  height: 40%;
+}
+.songs-default h4 {
+  font-size: 1.5rem;
+}
+.songs-default p {
+  font-size: 1.2rem;
+}
+.song {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+  border-radius: 5px;
+  height: 3rem;
+  background: var(--primary-3);
+  margin: 5px 0;
+}
+.song p {
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+.song i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.song .options {
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+/* .song .fa-play-circle:hover {
+  color: linear-gradient(to right, #009fff, #ec2f4b);
+} */
+.songs-list {
+  height: 100%;
+  overflow-y: auto;
+}
+/* Now playing bar */
+.now-playing {
+  height: 10%;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  /* border-radius: 15px; */
+  background: var(--primary-2);
+  text-align: center;
+}
+/* default small player */
+.small-player {
+  height: 20%;
+}
+.grid-show {
+  display: grid;
+  grid-template-areas:
+    'title title controls'
+    'progress progress progress';
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+.curr-track {
+  font-size: 1.2rem;
+  margin-left: 5px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  grid-area: title;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.curr-track p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.controls {
+  margin-right: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.75rem;
+  grid-area: controls;
+  align-items: center;
+  width: 100%;
+}
+.controls * {
+  cursor: pointer;
+}
+.big-player .controls {
+  justify-content: center;
+}
+.big-player .controls * {
+  margin: 0 1rem;
+}
+.controls #play {
+  font-size: 2rem;
+  border-radius: 50%;
+}
+.progress-bar {
+  grid-area: progress;
+  height: 5px;
+  background: var(--primary-5);
+  position: absolute;
+  width: 101.5%;
+  top: 100%;
+  left: -5px;
+}
+.progress {
+  background: var(--primary-1);
+  height: 100%;
+  width: 5px;
+  background: linear-gradient(to right, #009fff, #ec2f4b);
+}
+
+.hide {
+  display: none !important;
+}
+
+/* Big player */
+.big-player {
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary-4);
+  flex-direction: column;
+  justify-content: space-around;
+  color: var(--text);
+}
+.player-menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin: 0.5rem;
+}
+.player-menu i {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.player-menu h3 {
+  width: 90%;
+  text-align: center;
+  margin-left: -2rem;
+}
+.main-content.player {
+  height: 60%;
+  width: 100%;
+}
+.main-content.player img {
+  height: 50%;
+  border-radius: 50%;
+}
+#canvas {
+  height: 25%;
+  width: 90%;
+}
+.main-content .slider {
+  height: 10%;
+  width: 100%;
+  margin: 0.5rem;
+}
+.seek-slider {
+  width: 50%;
+}
+.big-player .controls #play {
+  font-size: 3rem;
+}
+.big-player .small-player {
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.big-player .curr-track-name {
+  font-size: 2rem;
+}
+.big-player.now-playing {
+  border-radius: 25px;
+}
+.time-stamps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+  font-size: 0.8rem;
+}
+/* Hovers */
+.menu .fas:hover,
+.player-menu i:hover {
+  background: var(--primary-3);
+}
+.big-player .controls #play:hover {
+  box-shadow: 0 0 15px 5px var(--primary-1);
+}
+.now-playing:hover {
+  background: var(--primary-1);
+}
+.big-player.now-playing:hover {
+  background: var(--primary-4);
+}
